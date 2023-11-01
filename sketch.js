@@ -198,16 +198,16 @@ function draw() {
       tamagotchi.happiness -= 15
     }
     tamagotchi.happiness -= 5;
-    storeItem('happiness', tamagotchi.happiness);
-   }
-   if(tamagotchi.hunger > 0 && happyTimer % 200 == 0){
+  }
+  if(tamagotchi.hunger > 0 && happyTimer % 200 == 0){
     tamagotchi.hunger -= 5
-   }
-    
   }
-  if(timerTime[1] == timerTime[0] && timerTime[0] == 0 && timerIsGoing){
-    timerStop();
-  }
+  
+}
+if(timerTime[1] == timerTime[0] && timerTime[0] == 0 && timerIsGoing){
+  timerStop();
+}
+storeItem('happiness', tamagotchi.happiness);
   // TRICK SCREEN CODE
 
   if(currentScreen == "trickmenu"){
@@ -348,14 +348,7 @@ function mouseClicked(){
         currentScreen = "mainmenu"
       }
     }
-    if(mouseX > 160 && mouseX < 240 && mouseY > 510 && mouseY < 590){
-      // if(currentScreen == "mainmenu" || currentScreen == "infomenu" && !isFeeding && !isPetting){
-      //   currentScreen = "trickmenu";
-      //   stopItRightThere = true;
-      // }
-      // if(currentScreen == "trickmenu" && stopItRightThere == false){
-      //   currentScreen = "mainmenu";
-      // }
+    if(mouseX > 160 && mouseX < 240 && mouseY > 510 && mouseY < 590 && !isPetting && !isFeeding){
       trick(1)
     }
   }
